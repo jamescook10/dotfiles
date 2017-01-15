@@ -28,6 +28,8 @@ select sublime in "Reset Sublime" "Leave as is/Sublime Not Installed"; do
       printf "Recreating empty Sublime Text 3 User folder...\n\n"
       # Recreate empty folder
       mkdir -vp ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+      mkdir -vp ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
+      curl -o ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package  https://packagecontrol.io/Package%20Control.sublime-package
     fi
     printf "\nInstalling Sublime dotfiles\n"
     # Sublime Settings
