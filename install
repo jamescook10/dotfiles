@@ -32,9 +32,9 @@ select sublime in "Reset Sublime" "Leave as is/Sublime Not Installed"; do
     printf "\nInstalling Sublime dotfiles\n"
     # Sublime Settings
     ln -svi ~/dotfiles/sublime/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-    ln -svi ~/dotfiles/sublime/settings/Default \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+    ln -svi ~/'dotfiles/sublime/settings/Default (OSX).sublime-keymap' ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
     ln -svi ~/dotfiles/sublime/settings/JavaScriptNext.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-    ln -svi "~/dotfiles/sublime/settings/Package Control.sublime-settings" ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+    ln -svi ~/'dotfiles/sublime/settings/Package Control.sublime-settings' ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
     # Sublime Snippets
     ln -svi ~/dotfiles/sublime/snippets/do.sublime-snippet ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
