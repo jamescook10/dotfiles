@@ -1,0 +1,8 @@
+[user]
+	name = James Cook
+	email = jamesmarkcook@gmail.com
+[push]
+	default = matching
+[core]
+	excludesfile = /Users/jamescook/.gitignore_global
+
