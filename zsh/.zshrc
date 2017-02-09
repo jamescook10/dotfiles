@@ -6,7 +6,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/dotfiles/zsh/.zsh-local
+source $HOME/dotfiles/zsh/.zshrc-local
 
 export PATH="$HOME/.rbenv/bin:$HOME/bin:usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -24,6 +24,7 @@ alias stopnginx='sudo /usr/local/bin/nginx -s stop'
 alias code="~/Code"
 alias projects="~/Dropbox/Projects"
 alias zshconf="vim ~/.zshrc"
+alias zshconfl="vim ~/dotfiles/zsh/.zshrc-local"
 alias downloads="~/Downloads"
 alias zreload="source ~/.zshrc"
 alias be='bundle exec'
