@@ -6,6 +6,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/dotfiles/zsh/.zsh-local
 
 export PATH="$HOME/.rbenv/bin:$HOME/bin:usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -35,3 +36,9 @@ PERL_MM_OPT="INSTALL_BASE=/Users/jamescook/perl5"; export PERL_MM_OPT;
 
 # Syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+PATH="/Users/jcook/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/jcook/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/jcook/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/jcook/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jcook/perl5"; export PERL_MM_OPT;
