@@ -1,0 +1,5 @@
+user_preferences/Package Control.cache/*
+user_preferences/*.crt
+user_preferences/*.last-run
+user_preferences/*.merged-ca-bundle
+user_preferences/*.user-ca-bundle

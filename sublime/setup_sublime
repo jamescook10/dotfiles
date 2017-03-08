@@ -1,0 +1,48 @@
+#!/bin/bash
+sublime_installed=0
+
+symlink_sublime_settings() {
+  mkdir -vp "${1}Packages/"
+  echo "Symlinking Sublime dotfiles..."
+  # Sublime Settings
+  ln -svi "${HOME}/dotfiles/sublime/user_preferences/" "${1}Packages/User"
+  echo "Installing Sublime Package Manager..."
+  curl -o "${1}Installed Packages/Package Control.sublime-package"  https://packagecontrol.io/Package%20Control.sublime-package
+}
+
+backup_settings() {
+  sublime_dir=$1
+  version=$2
+  echo "Do you want to reset your ${2} installation and replace with these dotfiles? (Original settings will be backed up to the Desktop and existing Sublime installation will be used)."
+  select decision in "Reset Sublime" "Skip"; do
+    if [ "$decision" == "Reset Sublime" ]; then
+      printf "\nBacking up Sublime Text Settings and Packages to the Desktop...\n\n"
+      echo "Sublime settings directory: " $sublime_dir
+      cp -R "${sublime_dir}" $backup_settings/sublime_backup/
+      rm -rf "${sublime_dir}"
+      # Recreate original folder
+      mkdir -vp "${sublime_dir}Installed Packages/"
+      symlink_sublime_settings "${sublime_dir}"
+    fi
+    break
+  done
+}
+
+check_existence_of_sublime_version() {
+  version=$1
+  sublime_dir="${HOME}/Library/Application Support/${1}/"
+  if [ -d "${sublime_dir}" ]; then
+    sublime_installed=1
+    backup_settings "${sublime_dir}" "${version}"
+  fi
+}
+
+check_existence_of_sublime_version "Sublime Text"
+check_existence_of_sublime_version "Sublime Text 2"
+check_existence_of_sublime_version "Sublime Text 3"
+
+if [ "$sublime_installed" == 0 ]; then
+   brew cask install sublime-text
+   symlink_sublime_settings ~/Library/Application\ Support/Sublime Text/
+fi
+

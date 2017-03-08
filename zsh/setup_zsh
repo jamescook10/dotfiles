@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Run oh-my-zsh install
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+
+# Install Powerlevel9k theme
+powerlevel9kdir=~/.oh-my-zsh/custom/themes/powerlevel9k
+if [ ! -d  $powerlevel9kdir ]; then
+  git clone https://github.com/bhilburn/powerlevel9k.git $powerlevel9kdir
+fi
+
+# Install zsh-syntax-highlighting
+zshsyntaxdir=~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+if [ ! -d  $zshsyntaxdir ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $zshsyntaxdir
+fi
+
+if [ -e ~/.zshrc ]; then
+  echo "Backing up existing .zshrc file..."
+  cp ~/.zshrc $backup_folder/.zshrc_bak
+  rm ~/.zshrc
+fi
+
+echo "Symlinking dotfiles .zshrc file..."
+ln -svi ~/dotfiles/zsh/.zshrc ~
+
+if [ ! -e ~/.zshrc-local ]; then
+  echo "Creating .zshrc-local file..."
+  echo "# Enter machine specific settings below" >> ~/.zshrc-local
+fi

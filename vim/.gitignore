@@ -1,0 +1,3 @@
+dotvim/bundle/*
+!dotvim/bundle/.gitkeep
+dotvim/.netrwhist

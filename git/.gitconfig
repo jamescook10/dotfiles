@@ -5,4 +5,6 @@
 	default = matching
 [core]
 	excludesfile = /Users/jamescook/.gitignore_global
+	editor = /usr/bin/vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 

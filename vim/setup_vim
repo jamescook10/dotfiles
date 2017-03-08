@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Vim
+if [ -d  ~/.vim ]; then
+  echo "Backing up existing .vim folder..."
+  cp -R ~/.vim/ $backup_folder/.vim_bak/
+  rm -rf ~/.vim
+fi
+
+echo "Symlinking dotfiles .vim folder..."
+ln -svi ~/dotfiles/vim/dotvim ~/.vim
+
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+  echo "Installing Vundle for vim..."
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+echo "Installing Vundle plugins..."
+vim +PluginInstall +qall
+
+if [ -e  ~/.vimrc ]; then
+  echo "Backing up existing .vimrc file...."
+  cp ~/.vimrc $backup_folder/.vimrc_bak
+  rm ~/.vimrc
+fi
+
+echo "Symlinking dotfiles .vimrc file..."
+ln -svi ~/dotfiles/vim/.vimrc ~/.vimrc
+
+
+

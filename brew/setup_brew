@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Brew all the things
+brew update
+brew_packages=(
+  'diff-so-fancy'
+  'rbenv'
+)
+
+for brew_package in $brew_packages; do
+  if brew ls --versions $brew_package > /dev/null; then
+    echo "${brew_package} already installed, skipping..."
+    continue
+  else
+    brew install $brew_package
+  fi
+done
+
+brew tap caskroom/cask
